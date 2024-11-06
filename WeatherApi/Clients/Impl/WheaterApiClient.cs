@@ -9,7 +9,6 @@ namespace WeatherApi.Clients.Impl;
 
 public class WheaterApiClient(HttpClient httpClient, IConfiguration configuration) : IWeatherApiClient
 {
-    private readonly HttpClient _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
     private readonly string _apiKey = configuration["WeatherApi:ApiKey"] ?? throw new ArgumentNullException("WeatherApi:ApiKey", "A chave da API de clima n�o est� configurada.");
     public async Task<WeatherResponse> GetFutureWeatherAsync(string city, int days)
     {

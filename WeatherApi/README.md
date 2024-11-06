@@ -21,7 +21,7 @@ Este projeto implementa uma Azure Function em C# que consulta uma API de clima e
 
 ### Pré-requisitos
 
-- **.NET 6** ou superior
+- **.NET 8** 
 - **Azure Functions Core Tools** para execução local.
 - Conta na [WeatherAPI](https://www.weatherapi.com/)  para obtenção de uma chave de API.
 

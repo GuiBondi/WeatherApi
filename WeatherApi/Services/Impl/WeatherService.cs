@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 using WeatherApi.Dtos.Responses;
 using WeatherApi.Mappers;
 using WeatherApi.Queries;
-using WeatherApi.Utilities;
+using WeatherApi.Utils;
 
 namespace WeatherApi.Services.Impl;
 
@@ -20,7 +20,8 @@ public class WeatherService(IMediator mediator) : IWeatherService
         await Task.WhenAll(pastWeatherTask, futureWeatherTask);
         return FormatWeatherResponse(pastWeatherTask.Result, futureWeatherTask.Result); ;
     }
-    public static List<FormattedWeatherResponse> FormatWeatherResponse(List<WeatherResponse> pastWeatherResult, WeatherResponse futureWeatherResult)
+
+    private static List<FormattedWeatherResponse> FormatWeatherResponse(List<WeatherResponse> pastWeatherResult, WeatherResponse futureWeatherResult)
     {
         var combinedWeather = WeatherResponseMapper.MapPastWeather(pastWeatherResult);
         combinedWeather.AddRange(WeatherResponseMapper.MapFutureWeather(futureWeatherResult));

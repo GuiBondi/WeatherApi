@@ -14,7 +14,7 @@ public class GetPastWeatherQueryHandler(IWeatherApiClient client)
 {
     public async Task<List<WeatherResponse>> Handle(GetPastWeatherQuery request, CancellationToken cancellationToken)
     {
-        var tasks = request.Dates.Select(date => client.GetPastWatherAsync(request.Location, date));
+        var tasks = request.Dates.Select(date => client.GetPastWatherAsync(request.City, date));
         var weatherResponses = await Task.WhenAll(tasks);
         return weatherResponses.ToList();
     }

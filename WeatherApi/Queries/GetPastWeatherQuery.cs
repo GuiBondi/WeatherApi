@@ -7,6 +7,6 @@ namespace WeatherApi.Queries;
 
 public class GetPastWeatherQuery(string city, List<DateTime> dates) : IRequest<List<WeatherResponse>>
 {
-    public string Location { get; } = city;
+    public string City { get; } = city;
     public List<DateTime> Dates { get; } = dates;
 }

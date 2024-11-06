@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
-namespace WeatherApi.Utilities
+namespace WeatherApi.Utils
 {
     public static class DateUtilities
     {
@@ -53,7 +53,7 @@ namespace WeatherApi.Utilities
 
         public static int GetDaysRemaining()
         {
-            int daysUntilSunday = ((int)DayOfWeek.Sunday - (int)DateTime.Now.DayOfWeek + 7) % 7;
+            var daysUntilSunday = ((int)DayOfWeek.Sunday - (int)DateTime.Now.DayOfWeek + 7) % 7;
             return daysUntilSunday == 0 ? 0 : daysUntilSunday + 1;
         }
     }
