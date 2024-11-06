@@ -53,8 +53,8 @@ namespace WeatherApi.Utilities
 
         public static int GetDaysRemaining()
         {
-            int daysUntilSunday = (DayOfWeek.Sunday - DateTime.Now.DayOfWeek + 7) % 7;
-            return daysUntilSunday == 0 ? 7 : daysUntilSunday;
+            int daysUntilSunday = ((int)DayOfWeek.Sunday - (int)DateTime.Now.DayOfWeek + 7) % 7;
+            return daysUntilSunday == 0 ? 7 : daysUntilSunday + 1;
         }
     }
 }
