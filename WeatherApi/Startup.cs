@@ -18,7 +18,7 @@ namespace WeatherApi
             builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
             builder.Services.AddTransient<IWeatherService, WeatherService>();
             builder.Services.AddLogging();
-            builder.Services.AddHttpClient<IWeatherApiClient, WeatherApiClient>(client =>
+            builder.Services.AddHttpClient<IWeatherApiClient, WheaterApiClient>(client =>
             {
                 var baseUrl = builder.GetContext().Configuration["WeatherApi:BaseUrl"];
                 if (string.IsNullOrEmpty(baseUrl))

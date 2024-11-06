@@ -7,7 +7,7 @@ using WeatherApi.Dtos.Responses;
 
 namespace WeatherApi.Clients.Impl;
 
-public class WeatherApiClient(HttpClient httpClient, IConfiguration configuration) : IWeatherApiClient
+public class WheaterApiClient(HttpClient httpClient, IConfiguration configuration) : IWeatherApiClient
 {
     private readonly HttpClient _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
     private readonly string _apiKey = configuration["WeatherApi:ApiKey"] ?? throw new ArgumentNullException("WeatherApi:ApiKey", "A chave da API de clima n�o est� configurada.");

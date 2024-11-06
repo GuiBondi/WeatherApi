@@ -15,11 +15,8 @@ namespace WeatherApi;
 public class GetWeather(IWeatherService weatherService)
 {
     [FunctionName("GetWeather")]
-    public async Task<IActionResult> Run(
-   [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "weather/{city?}")]
-        HttpRequest req,
-   string city,
-   ILogger log)
+    public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get",Route = "weather/{city?}")]
+        HttpRequest req, string city,ILogger log)
     {
         log.LogInformation("Função de API de clima processou uma solicitação.");
         string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
